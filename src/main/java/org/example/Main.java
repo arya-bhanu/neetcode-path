@@ -16,12 +16,13 @@ public class Main {
         for (int i = 1; i <= length / 2; i++){
             if(length % i == 0){
                 String subs = s.substring(0,i);
-                StringBuilder sb = new StringBuilder();
-                for (int j = 0; j < length/ i; j++){
-                    sb.append(subs);
-                }
-                if(sb.toString().equals(s)){
-                    return true;
+                for (int j = 1; j <= length/ i - 1; j++){
+                    int start = j * i;
+                    String subS = s.substring(start, start + i);
+                    if(!subS.equals(subs)){
+                        break;
+                    }
+                    if(length == start + i) return true;
                 }
             }
         }
