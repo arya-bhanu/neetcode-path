@@ -16,13 +16,9 @@ public class Main {
         for (int i = 1; i <= length / 2; i++){
             if(length % i == 0){
                 String subs = s.substring(0,i);
-                for (int j = 1; j <= length/ i - 1; j++){
-                    int start = j * i;
-                    String subS = s.substring(start, start + i);
-                    if(!subS.equals(subs)){
-                        break;
-                    }
-                    if(length == start + i) return true;
+                String toCompare = subs.repeat(length / i);
+                if(toCompare.equals(s)){
+                    return true;
                 }
             }
         }
