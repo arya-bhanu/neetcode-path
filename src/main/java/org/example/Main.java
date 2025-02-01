@@ -1,8 +1,5 @@
 package org.example;
 
-import java.util.LinkedList;
-import java.util.Queue;
-
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
@@ -14,21 +11,9 @@ public class Main {
         System.out.println(rotateString(s2,goal2));
     }
     public static boolean rotateString(String s, String goal) {
-//        Using Queue (not very effective)
+//        Creative ways, you can add two string and check if it contains
+//        if it all about repetition, think about double it content
         if (s.length() != goal.length()) return false;
-        Queue<Character> pq = new LinkedList<>();
-        for (Character c: s.toCharArray()){
-            pq.add(c);
-        }
-        for (int i = 0; i < s.length(); i++){
-            pq.add(pq.poll());
-            StringBuilder sb = new StringBuilder();
-            for (Character character : pq) {
-                sb.append(character);
-            }
-            if(sb.toString().equals(goal)) return true;
-        }
-        return false;
-
+        return (s + s).contains(goal);
     }
 }
