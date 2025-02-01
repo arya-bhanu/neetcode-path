@@ -5,7 +5,7 @@ public class Main {
         System.out.println("Hello world!");
     }
     public static int isPrefixOfWord(String sentence, String searchWord) {
-//        My own solution
+//        Actually, using regex is slower, use " " instead
         String [] words = sentence.split("\\s+");
         for (int i = 0; i < words.length; i++){
             if(words[i].startsWith(searchWord)) return i + 1;
