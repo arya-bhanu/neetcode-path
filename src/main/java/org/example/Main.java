@@ -6,20 +6,16 @@ public class Main {
         System.out.println(maxRepeating("ababc","ba"));
         System.out.println(maxRepeating("ababc","ac"));
     }
+//     if word concatenated k times is a substring of sequence
+//    solved (simple)
     public static int maxRepeating(String sequence, String word) {
         if(!sequence.contains(word)) return 0;
-        int targetLength = word.length();
-        char fc = word.charAt(0);
+        StringBuilder stringBuilder = new StringBuilder();
         int counter = 0;
-        int i = 0;
-        int j = i + targetLength - 1;
-        while (j < sequence.length()){
-            if(sequence.charAt(i) == fc){
-                String str = sequence.substring(i, j + 1);
-                if(str.equals(word)) counter++;
-            }
-            ++i;
-            j = i + targetLength - 1;
+        stringBuilder.append(word);
+        while (sequence.contains(stringBuilder)){
+            counter++;
+            stringBuilder.append(word);
         }
         return counter;
     }
