@@ -13,22 +13,15 @@ public class Main {
         System.out.println(Arrays.toString(plusOne(ex3)));
     }
 //    do not use copy array into another memory array. we can create a new size from same memory
-//    algorithm below seems complex
+//    this algorithm is fixed with simpler flow
     public static int[] plusOne(int[] digits) {
-        int lastDigit = digits[digits.length -1];
-        if(lastDigit != 9){
-            digits[digits.length - 1] = ++lastDigit;
-            return digits;
-        }
-        for(int i = digits.length - 1; i >= 0; i--){
-            digits[i] = 0;
-            if ((i - 1 )>= 0){
-                int prevVal = digits[i-1];
-                if(prevVal != 9){
-                    digits[i-1] = ++prevVal;
-                    return digits;
-                }
+        for(int i = digits.length - 1;i >= 0;i--){
+            int val = digits[i];
+            if(val < 9){
+                digits[i] = ++val;
+                return digits;
             }
+            digits[i] = 0;
         }
         digits = new int[digits.length + 1];
         digits[0] = 1;
