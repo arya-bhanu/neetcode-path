@@ -1,7 +1,6 @@
 package org.example;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.HashSet;
 
 public class Main {
     public static void main(String[] args) {
@@ -13,13 +12,13 @@ public class Main {
         System.out.println(containsDuplicate(arr2));
         System.out.println(containsDuplicate(arr3));
     }
-//    use hashmap
+//    use hashset
+//    faster and more memory efficient
     public static boolean containsDuplicate(int[] nums) {
-        Map<Integer, Integer> map = new HashMap<>();
-        for(Integer i :nums){
-            int val = map.getOrDefault(i,1);
-            if(val > 1) return true;
-            map.put(i, ++val);
+        HashSet<Integer> hs = new HashSet<>();
+        for(int i : nums){
+            if(hs.contains(i)) return true;
+            hs.add(i);
         }
         return false;
     }
