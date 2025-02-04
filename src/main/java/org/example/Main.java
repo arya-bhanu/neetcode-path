@@ -1,7 +1,5 @@
 package org.example;
 
-import java.util.Arrays;
-
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
@@ -9,14 +7,18 @@ public class Main {
         System.out.println(missingNumber(new int[] {0,1}));
         System.out.println(missingNumber(new int[] {1,2,3,5,0}));
     }
-//    naive approach
+//    sum distinct approach
+//    only use one iteration
+//    memory efficient
     public static int missingNumber(int[] nums) {
-        int range = nums.length + 1;
-        Arrays.sort(nums);
-        for(int i = 0; i < range; i++){
-            if(nums.length <= i) return nums[nums.length - 1] + 1;
-            if(nums[i] != i) return i;
+        int shouldSum = 0;
+        int currSum = 0;
+        for(int i = 0; i < nums.length + 1; i++){
+            shouldSum += i;
+            if(i != nums.length){
+                currSum += nums[i];
+            }
         }
-        return -1;
+        return shouldSum - currSum;
     }
 }
