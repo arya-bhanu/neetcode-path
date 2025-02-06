@@ -32,10 +32,12 @@ public class Main {
             --j;
             ++i;
         }
-        return String.copyValueOf(newArr);
+//        String.copyValueOf can be time consuming
+//        use new String()
+        return new String(newArr);
     }
 
     public static boolean isVowels(char c){
-        return Character.toLowerCase(c) == 'a' || Character.toLowerCase(c)  == 'i' || Character.toLowerCase(c)  == 'u' || Character.toLowerCase(c)  == 'e' || Character.toLowerCase(c) == 'o';
+        return "AIUEOaiueo".indexOf(c) != -1;
     }
 }
