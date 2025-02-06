@@ -8,10 +8,7 @@ public class Main {
         System.out.println(countPrefixSuffixPairs(new String[]{"abab","ab"}));
     }
     public static boolean isPrefixSuffix(String str1, String str2){
-        if(str2.length() < str1.length()) return false;
-        String prefix = str2.substring(0,str1.length());
-        String suffix = str2.substring(str2.length() - str1.length());
-        return prefix.equals(str1) && suffix.equals(str1);
+        return str2.startsWith(str1) && str2.endsWith(str1);
     }
     public static int countPrefixSuffixPairs(String[] words) {
         int counter = 0;
