@@ -13,6 +13,7 @@ public class Main {
 
     }
 
+//    remove unnecessary j iterator
     public static char findTheDifference(String s, String t) {
         if(s.isEmpty()) return t.toCharArray()[0];
         char[] chars = s.toCharArray();
@@ -20,11 +21,9 @@ public class Main {
         Arrays.sort(chars);
         Arrays.sort(chart);
         int i = 0;
-        int j = 0;
-        while (i < s.length() && j < t.length()){
-            if(chars[i] != chart[j]) return chart[j];
+        while (i < s.length()){
+            if(chars[i] != chart[i]) return chart[i];
             i++;
-            j++;
         }
         return chart[chart.length - 1];
     }
